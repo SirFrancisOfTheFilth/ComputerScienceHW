@@ -4,7 +4,7 @@ public class TempConverter
     public static void main(String[] args){
 
      System.out.println("Enter 1 if you want to convert from Celsius to Fahrenheit or 2 to convert from Fahrenheit to Celsius:");
-     boolean ifConvert = true; //allows for program to run indefinitely until it "breaks" at the end
+     boolean ifConvert = true; //allows for program to run indefinitely until it "breaks" at the end dependent on the condition
 
 
        while(ifConvert){
