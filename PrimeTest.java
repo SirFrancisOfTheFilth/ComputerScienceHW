@@ -27,10 +27,10 @@ public class PrimeTest
 
     boolean returnVal = isAPrime(primeScan);
 
-    if(returnVal){
+    if(returnVal && (primeScan != 1) ){
       System.out.println(primeScan + " is a prime number.");
       System.out.println("-----------------------------------");
-    } else {
+    } else if( (primeScan == 1) || !(returnVal) ){
       System.out.println(primeScan + " is not a prime number");
       System.out.println("-----------------------------------");
     }
