@@ -7,11 +7,11 @@ public class PrimeTest
 
       for(int i = 2; i < y; i++){
         if(y % i == 0){
-          return false;
+          return false; //if something is divisible, exits with return val false
         }
       }
 
-      return true;
+      return true; //if it runs all the way through without failure return true
 
 
     }
@@ -27,7 +27,7 @@ public class PrimeTest
 
     boolean returnVal = isAPrime(primeScan);
 
-    if(returnVal && (primeScan != 1) ){
+    if(returnVal && (primeScan != 1) ){ //Deals with the case of 1 being treated as a prime number
       System.out.println(primeScan + " is a prime number.");
       System.out.println("-----------------------------------");
     } else if( (primeScan == 1) || !(returnVal) ){
@@ -48,7 +48,7 @@ public class PrimeTest
         }
       }
 
-      if(counter == 2){
+      if(counter == 2){ //can only have two factors: 1 and the own number, and if there are more, then it isnt prime
         System.out.println(i);
         counter -= counter;
       } else {
