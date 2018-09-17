@@ -4,7 +4,9 @@ public class MakeChange
 {
 
   static int loopingCoinage(int coinNum, double moneyNum){
-
+      
+      //Dependent on idea that some number (673) % (25 * countNum) = 673 when countNum is 1 over its maximum
+      //Example : 673 mod (25 * 27 ) = 673, so the proper value of quarters is 26.
       int countNum = 0;
       while( (100 * moneyNum) % (coinNum * countNum) != (100 * moneyNum) ) {
         countNum += 1;
