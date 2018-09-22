@@ -4,8 +4,7 @@ public class EAUsername{
 
   public static void main(String[] args){
 
-  boolean decidingVal = true;
-  while(decidingVal){
+  while(true){
 
     String str1; //for first part of email with last name
     String str2;//for part of email with first name character;
