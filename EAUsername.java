@@ -47,7 +47,9 @@ public class EAUsername{
       }
 
       String finalStr = str1 + str2 + str3 + scanInt.substring(2,4) + "@episcopalacademy.org";
-      System.out.println(finalStr.toLowerCase());
+      System.out.println("Your email is " + finalStr.toLowerCase() + ".");
+      String usernameStr = str1 + str2 + str3 + scanInt.substring(2,4);
+      System.out.println("Your username is " + usernameStr.toLowerCase() + ".");
 
     } else if(counter == 1){//Meaning that there isnt a middle name
 
@@ -57,8 +59,10 @@ public class EAUsername{
         str1 = scanStr.substring(space1 + 1);
       }
 
-      String finalStr = str1 + str2 + scanInt.substring(2,4) + "@episcopalacademy.org";
-      System.out.println(finalStr.toLowerCase());
+      String finalStr = str1 + str2  + scanInt.substring(2,4) + "@episcopalacademy.org";
+      System.out.println("Your email is " + finalStr.toLowerCase() + ".");
+      String usernameStr = str1 + str2 + scanInt.substring(2,4);
+      System.out.println("Your username is " + usernameStr.toLowerCase() + ".");
     }
 
     System.out.println("Do you want to determine another email? Press 1 to re-enter or press 2 to quit.");
