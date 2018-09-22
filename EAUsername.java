@@ -11,7 +11,7 @@ public class EAUsername{
     String str2;//for part of email with first name character;
     String str3; //for part of email with first letter of middle name character
 
-    System.out.println("Enter your full name (with spaces, since it is assumed that you are a normal human being who enters their full name with spaces.) ");
+    System.out.println("Enter your full name, or any full name (with spaces, since it is assumed that you are a normal human being who enters their full name with spaces.) ");
     Scanner scan1 = new Scanner(System.in);
     String scanStr = scan1.nextLine();
 
