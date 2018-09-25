@@ -1,18 +1,16 @@
 public class ObjectClass
 {
-    // instance variables - replace the example below with your own
+
         String finalStr = "";
         String intermediateStr = "";
 
         int randomNum;
         int capitalizationNum;
 
-    /**
-     * Constructor for objects of class ObjectClass
-     */
+
     public ObjectClass()
     {
-
+        //Empty constructor(unnecessary for this case)
     }
 
 
