@@ -5,6 +5,7 @@
     import java.awt.Graphics;
     import java.awt.Graphics2D;
     import java.awt.Point;
+    import java.awt.Color;
     
     public class DrawCircle {
         private JFrame frame;
@@ -46,8 +47,11 @@
             
             
             g.drawOval( (x+(side)), (y-(side)) , side, side);
+            g.setColor(new Color(255, 0, 0) );
             g.drawOval( (x), (y - (side) ), side, side);
+            g.setColor(new Color(0, 255, 0) );
             g.drawOval( (x + (side/2) ), (y - (side/8) ), side, side);
+            g.setColor(new Color(0, 0, 255) );
            
             
             
@@ -57,7 +61,7 @@
             
             
             if(side >= 25){
-                drawCircle(g, (x), (y), (side) );
+                drawCircle(g, (x), (y), (side));
                 drawCircle(g, (x + 2*side), y, (side) );
                 drawCircle(g, (x + (side/2) ), (y - (side/8)), (side) );
                 
