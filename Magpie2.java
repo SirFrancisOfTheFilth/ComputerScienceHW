@@ -40,8 +40,7 @@ public class Magpie2
                 || (keywordPrecedence(keywords, statement).equals("sister") && (keywordDetection(statement, keywordPrecedence(keywords, statement))))
                 || (keywordPrecedence(keywords, statement).equals("father") && (keywordDetection(statement, keywordPrecedence(keywords, statement)))))
         {
-            System.out.println(keywordPrecedence(keywords, statement));
-            System.out.println(keywordDetection(statement, keywordPrecedence(keywords, statement)));
+
             response = "Tell me more about your family.";
         } else if( (keywordPrecedence(keywords, statement).equals("dog") && keywordDetection(statement, keywordPrecedence(keywords, statement)))  || (keywordPrecedence(keywords, statement).equals("cat") && keywordDetection(statement, keywordPrecedence(keywords, statement)) ) ){
             response = "Tell me more about your pets.";
