@@ -64,10 +64,10 @@ public class Magpie2
         
     if(firstLetter != -1){
         if( (firstLetter != 0) && (firstLetter != statement.length() - keyword.length()) && ((statement.substring(firstLetter - 1, firstLetter)).equals(" ") ) && ( (statement.substring(firstLetter + keyword.length(), firstLetter + keyword.length() + 1)).equals(" ") ) ){
-            System.out.println("True");
+            
             return true;
         } else if( (firstLetter == 0) && (firstLetter != statement.length() - keyword.length()) && (statement.substring(firstLetter + keyword.length(), firstLetter + keyword.length() + 1 ) ).equals(" ") ) {
-            System.out.println("True");
+            
             return true;
         }  else if( (firstLetter == statement.length() - keyword.length()) && !(statement.substring(firstLetter, firstLetter+1).equals(statement.substring(0,1))) && ( (statement.substring(firstLetter - 1, firstLetter) ).equals(" ") ) ) {
 
@@ -82,7 +82,8 @@ public class Magpie2
 }
     
     public String keywordPrecedence(String[] arr, String statement){
-        //returns the last keyword that occurs in string
+        //returns the last keyword that occurs in string, as it makes the most sense out of the statement semantically
+        
         int max;
         max = -1;
         String str = "";
@@ -93,7 +94,7 @@ public class Magpie2
             }
         }
         
-        System.out.println(max);
+        
         if(max == -1){
             getRandomResponse();
             return str;
