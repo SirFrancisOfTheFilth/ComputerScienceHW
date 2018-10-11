@@ -33,14 +33,19 @@ public class Magpie2
         String[] keywords = {"no", "mother", "father", "sister", "brother", "dog", "cat", "Mr.", "Ms.", "Mrs."};
         
         String response = "";
-        if ( keywordPrecedence(keywords, statement).equals("no") && keywordDetection(statement, keywordPrecedence(keywords, statement) ) ) {
+        if( !(iWant(statement).equals("abc")) ){
+            System.out.println("Would you like " + iWant(statement) + "?" );
+        } else if(!(iLike(statement).equals("false string"))) {
+            System.out.println("Why do you " + iLike(statement) + "me" + "?" );
+        } else if ( keywordPrecedence(keywords, statement).equals("no") && keywordDetection(statement, keywordPrecedence(keywords, statement) ) ) {
             response = "Why so negative?";
         }else if ( (keywordPrecedence(keywords, statement).equals("mother") && (keywordDetection(statement, keywordPrecedence(keywords, statement))))
                 || (keywordPrecedence(keywords, statement).equals("brother") && (keywordDetection(statement, keywordPrecedence(keywords, statement))))
                 || (keywordPrecedence(keywords, statement).equals("sister") && (keywordDetection(statement, keywordPrecedence(keywords, statement))))
                 || (keywordPrecedence(keywords, statement).equals("father") && (keywordDetection(statement, keywordPrecedence(keywords, statement)))))
         {
-
+            System.out.println(keywordPrecedence(keywords, statement));
+            System.out.println(keywordDetection(statement, keywordPrecedence(keywords, statement)));
             response = "Tell me more about your family.";
         } else if( (keywordPrecedence(keywords, statement).equals("dog") && keywordDetection(statement, keywordPrecedence(keywords, statement)))  || (keywordPrecedence(keywords, statement).equals("cat") && keywordDetection(statement, keywordPrecedence(keywords, statement)) ) ){
             response = "Tell me more about your pets.";
@@ -48,7 +53,8 @@ public class Magpie2
             response = "He sounds like a nice teacher.";
         } else if(  keywordPrecedence(keywords, statement).equals("Ms.") && keywordDetection(statement,  keywordPrecedence(keywords, statement)) ||  (keywordPrecedence(keywords, statement).equals("Mrs.") && keywordDetection(statement, keywordPrecedence(keywords, statement))) ){
             response = "She sounds like a nice teacher.";
-        } else {
+        } 
+        else {
             response = getRandomResponse();
         }
 
@@ -100,6 +106,31 @@ public class Magpie2
         } else {
            
             return statement.substring(max, max + str.length() );
+        }
+    }
+    
+    public String iWant(String statement){
+        int ifPresent = statement.indexOf("I want");
+        
+        System.out.println(ifPresent + 6);
+        
+        if(ifPresent != -1){
+            String strWant = statement.substring(ifPresent + 6);
+            return strWant;
+        } else {
+            getRandomResponse();
+            return "abc";
+        }
+    }
+    
+    public String iLike(String statement){
+        int firstIndex = statement.indexOf("I");
+        int secondIndex = statement.indexOf("you");
+        if(firstIndex < secondIndex){
+            String middleStr = statement.substring(firstIndex + 2, secondIndex );
+            return middleStr;
+        } else {
+            return "false string";
         }
     }
 
