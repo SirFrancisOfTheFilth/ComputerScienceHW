@@ -13,8 +13,9 @@ import java.awt.FontMetrics;
 
 public class MineSweeper {
     private JFrame frame;
-    static int xCord;
-    static int yCord;
+    static int xCord = 0;
+    static int yCord = 0;
+    static int counter = 0;
     boolean[][] ifClicked = new boolean[8][8];
 
 
@@ -77,14 +78,15 @@ public class MineSweeper {
                 startY += side;
             }
             
-            
+            if(counter >= 1){
+                if(grid[yCord][xCord] != -1){
                  g2.drawString(""+grid[yCord][xCord], (xCord*side) + (side/2), (yCord*side) + (side/2) );
-                 System.out.println(yCord);
-                 System.out.println(xCord);
-                 System.out.println("------------------------------");
                  surroundingNums(g2, xCord, yCord);
-           
-              
+                }else {
+                    System.out.println("You lose!");
+                }
+            } 
+            
 
         }
         
@@ -93,11 +95,7 @@ public class MineSweeper {
             
             for(int row = (yCord - 2); row <= (yCord + 2); row+= 1){
                 for(int col = xCord - 2; col <= xCord + 2; col+= 1){
-                    
-                    System.out.println(row);
-                    System.out.println(col);
-                    System.out.println("-----------------------------------");
-                    
+             
                     if( (((row <= grid.length - 1) && (row >= 0)) && ( (col >= 0) && (col <= grid.length - 1) )) && (grid[row][col] != -1) ){
                         
                        
@@ -181,6 +179,7 @@ public class MineSweeper {
             int y = e.getY()/side;//row
             xCord = x;
             yCord = y;
+            counter += 1;
             // 
 
             repaint();
