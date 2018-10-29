@@ -10,13 +10,16 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.util.ArrayList;
 
+//quasi-minesweeper algorithm
 public class MineSweeper {
     private JFrame frame;
-    static int xCord = 0;
-    static int yCord = 0;
+    static int xCord = -1;
+    static int yCord = -1;
     static int counter = 0;
     boolean[][] ifClicked = new boolean[8][8];
+    static ArrayList<Integer> drawArr = new ArrayList<Integer>();
 
 
     public MineSweeper() {
@@ -77,25 +80,55 @@ public class MineSweeper {
                 startX = 0;
                 startY += side;
             }
-            
-            if(counter >= 1){
+         
+            if(counter < 2 || grid[yCord][xCord] == 0){
                 if(grid[yCord][xCord] != -1){
-                 g2.drawString(""+grid[yCord][xCord], (xCord*side) + (side/2), (yCord*side) + (side/2) );
                  surroundingNums(g2, xCord, yCord);
-                }else {
-                    System.out.println("You lose!");
+                }else if (grid[yCord][xCord] == -1){
+                  System.out.println("You lose!");
+                  exposeNegative(g2);
                 }
-            } 
+            }  else {
+                if(grid[yCord][xCord] != -1){
+                   
+                        g2.drawString(""+grid[yCord][xCord], (( (xCord) * (side)) + side/2), ((yCord * side) + (side/2) ) );
+                    
+                } else if(grid[yCord][xCord] == -1){
+              
+                  System.out.println("You lose!");
+                  exposeNegative(g2);
+  
+    }
+  }
+}
+
+    public void exposeNegative(Graphics g2){
+        
+            
+               for(int row = 0; row < grid[0].length; row+= 1){
+                  for(int col = 0; col < grid.length; col+= 1){
+                    
+                 
+                    if( grid[row][col] == -1){
+                       
+                        g2.drawString(""+grid[row][col],  (col * side) + (side/2) , (row * side) + (side/2) );
+                      
+                 }
+                 
+           }
+        }
+    }
             
 
-        }
+
         
         
         public void surroundingNums(Graphics g2, int xCord, int yCord){
             
-            for(int row = (yCord - 2); row <= (yCord + 2); row+= 1){
-                for(int col = xCord - 2; col <= xCord + 2; col+= 1){
-             
+            for(int row = (yCord - 1); row <= (yCord + 1); row+= 1){
+                for(int col = xCord - 1; col <= xCord + 1; col+= 1){
+                    
+                 
                     if( (((row <= grid.length - 1) && (row >= 0)) && ( (col >= 0) && (col <= grid.length - 1) )) && (grid[row][col] != -1) ){
                         
                        
@@ -114,13 +147,16 @@ public class MineSweeper {
         public void randomAssign(){
            int rowRand = 0;
            int colRand = 0;
-           int counter = 1;
+           int counter = 0;
            while(counter <= 10){
                rowRand = (int)(Math.random() * 7);
                colRand = (int)(Math.random() * 7);
                if(grid[rowRand][colRand] != -1){
                    grid[rowRand][colRand] = -1;
-                }
+                   System.out.println(rowRand);
+                   System.out.println(colRand);
+                   System.out.println("------------------------");
+                } 
                 counter += 1;
             }
             
@@ -175,11 +211,14 @@ public class MineSweeper {
         
         
         public void mousePressed(MouseEvent e) {
+            
+            
             int x = e.getX()/side;//column
             int y = e.getY()/side;//row
             xCord = x;
             yCord = y;
             counter += 1;
+          
             // 
 
             repaint();
@@ -195,3 +234,4 @@ public class MineSweeper {
         }
     }
 }
+
