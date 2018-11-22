@@ -54,7 +54,6 @@ int determineMovement = 0;
 String message = "PRESS DOWN ARROW TO BEGIN!";
 String winMessage = "YOU HAVE DEFEATED ALL OF THE ALIENS!";
 String mes1 = "PRESS DOWN ARROW IF YOU WANT TO PLAY AGAIN!";
-String loseMessage = "YOU LOST! PRESS DOWN ARROW IF YOU WANT TO PLAY AGAIN!";
 
 
 
@@ -168,29 +167,7 @@ g.fillRect(0, 0, d.width, d.height);
            g.drawString(winMessage, 120, d.height-250);
            g.drawString(mes1, 100, d.height - 225);
            
-        } else if (losegame && !ingame){
-            
-              for(int i = 0; i < alienArr.length; i++){
-              for(int j = 0; j < alienArr[0].length; j++){
-                  alienArr[i][j] = true;
-                }
-           }
            
-           Font winFont = new Font("Helvetica", Font.BOLD, 10);
-           FontMetrics winMetric = this.getFontMetrics(winFont);
-           g.setColor(Color.black);
-           g.setFont(winFont);
-           
-           
-           
-           
-           rVal = 0;
-           cVal = 0;
-           time = 0;
-           
-           g.drawString(loseMessage, 80, d.height - 250);
-           
-            
         }else if (!ingame){
        
            g.drawString(message, 175, d.height-250);
