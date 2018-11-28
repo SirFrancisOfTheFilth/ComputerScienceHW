@@ -17,7 +17,7 @@ void draw()
 {
   background(255);
   //randomize number of bubbles generated
-   int bubblesGenerated = (int)(random(5,12));
+   int bubblesGenerated = (int)(random(10,25));
    
    
    for(int i = 0; i < bubblesGenerated; i++){
