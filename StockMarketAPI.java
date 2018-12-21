@@ -2,14 +2,19 @@ char letter;
 char letter2;
 boolean leftButton;
 boolean rightButton;
+
 String sym = "AAPL";
 String words = "";
 int wordLength = 0;
 String lines = "";
 ArrayList<DoubleType> stockList = new ArrayList<DoubleType>();
 
-int count = 0;
+int count = 1350;
 int numCount = 0;
+
+boolean press = false;
+
+
     
 
 //int counter = 0;
@@ -18,6 +23,7 @@ void setup(){
   stockList.add(new DoubleType("", 0) );
   size(1440, 900);
   fill(255, 255,255);
+
   
   
 
@@ -30,20 +36,29 @@ void draw(){
 
   
 background(0);
+
    
 rect(10,70,100,40);
-fill(255,0,0);
+fill(255,255,0);
   
   
 text("Current key: " + letter, 10, 40);
-                
-for(int i = 0; i < stockList.size(); i++){ 
+textSize(25);
+
+
+
+ for(int i = 0; i < stockList.size(); i++){
   if(stockList.get(i).getNum() > 0){
-    text("Stock : " + stockList.get(i).getNum(), 10 + ( 30  * wordLength * i) + (count ), 200);
-    text("Name : " + stockList.get(i).getString(), ( 90 + ( 30 * wordLength * i)  +   (count ) ), 200);
+    text("Stock : " + stockList.get(i).getNum(), 10 + ( 550 * i) + (count ) , 200);
+    textSize(25);
+    text("Name : " + stockList.get(i).getString() + " || " , ( 190 + ( 550 * i)  +   (count ) ) , 200);
+    textSize(25);
+    
     //text(" | ",  90 + (290 * i) + (
   }
-}
+ }
+
+  
 
 
 //text("Comparative key: " + letter2, 250, 40); 
@@ -59,24 +74,25 @@ fill(255, 255, 255);
 
 
 
-if(numCount % 2 == 0){
-  count += 10;
-  delay(50);
-if(count >= (1300 - (numCount * 100) )){
-  count = 0;
-}
-}else if(numCount % 2 != 0){
+
+
   count -= 10;
   delay(50);  
-  if(count <= -20 - (numCount * 10) ){
-    count = 1300;
+  int rand = (int)(Math.random() * 4) ;
+  if(count <= (-500 * (numCount) ) ){
+    println(rand);
+    
+
+    
+    count = 1350;
   }
+  
+  
+ 
+  
 }
 
 
-
-
-}
 
 // keyTyped
 void keyTyped() {
@@ -107,7 +123,7 @@ void mousePressed(){
         
         leftButton = true;
         sym = words;
-        
+         press = true;
      
         numCount += 1;
         read();
@@ -121,6 +137,12 @@ void mousePressed(){
    
      
 }
+
+void mouseReleased(){
+  press = false;
+}
+
+
 
 
 public void read(){
@@ -190,3 +212,4 @@ public void read(){
       
     
   }
+
