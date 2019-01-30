@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class Caesar
 {
@@ -17,7 +18,7 @@ public class Caesar
             System.out.println(tentative);
             
             if(tentative != ' '){
-                returnStr += (char)( ((int)(tentative)) + (integer % 26) );
+                returnStr += (char)( (((int)(tentative)) + (integer % 128)) );
             } else {
                 returnStr += " ";
             }
