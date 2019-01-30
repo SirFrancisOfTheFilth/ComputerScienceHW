@@ -9,24 +9,32 @@ public class Caesar
     
     public Caesar()
     {
-        String returnStr = "";
+     
+     caesarCipher(str1, integer);   
         
+    }
+    
+    public String caesarCipher(String str1, int integer){
+        String returnStr = "";
         char tentative = ' ';
         for(int i = 0; i < str1.length(); i++){
             tentative = str1.charAt(i);
-            System.out.println(tentative);
+            int num = ( ( (int)(tentative) + integer) % 91 );
             
             if(tentative != ' '){
-                returnStr += (char)( ( (((int)(tentative)) + integer) % 128) );
+                if(num != (int)(tentative) + integer){
+                    num += 65;
+                }
+                returnStr += (char)(num);
             } else {
                 returnStr += " ";
             }
+              
+            
+
+          
         }
-        
-        System.out.print(returnStr);
-        
-        
-        
+        return returnStr;
     }
 
 }
